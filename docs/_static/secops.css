@@ -1,0 +1,354 @@
+/* SecOps Docs - overrides on top of canonical-sphinx / Furo
+   Uses exact Furo CSS variable names from furo.css source.
+*/
+
+/* ═══════════════════════════════════════════════════════════
+   Sidebar folder nav
+   ═══════════════════════════════════════════════════════════ */
+
+.tag-folder-nav {
+  margin-top: var(--sidebar-tree-space-above, 1.5rem);
+  font-size: var(--sidebar-item-font-size, 0.875rem);
+}
+
+/* Doc Index top link */
+a.tag-index-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--sidebar-item-spacing-vertical, 0.5rem) var(--sidebar-item-spacing-horizontal, 1rem);
+  color: var(--color-sidebar-link-text--top-level);
+  text-decoration: none;
+  font-weight: 700;
+  line-height: var(--sidebar-item-line-height, 1rem);
+  overflow-wrap: anywhere;
+}
+a.tag-index-link:hover {
+  background: var(--color-sidebar-item-background--hover);
+  color: var(--color-sidebar-link-text--top-level);
+}
+a.tag-index-link.current {
+  font-weight: 700;
+  background: var(--color-sidebar-item-background--current);
+}
+.tag-index-icon { font-size: 0.7rem; }
+
+/* Folder button - matches Furo's toctree-l1 reference style exactly */
+.tag-folder { position: relative; margin: 0; }
+
+.tag-folder-btn {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--sidebar-item-spacing-vertical, 0.5rem) var(--sidebar-item-spacing-horizontal, 1rem);
+  background: var(--color-sidebar-item-background, transparent);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  line-height: var(--sidebar-item-line-height, 1rem);
+  color: var(--color-sidebar-link-text--top-level);
+  font-size: var(--sidebar-item-font-size, 0.875rem);
+  font-family: inherit;
+  font-weight: 400;
+}
+.tag-folder-btn:hover {
+  background: var(--color-sidebar-item-background--hover);
+  color: var(--color-sidebar-link-text--top-level);
+}
+
+.tag-folder-arrow {
+  font-size: 0.6rem;
+  width: var(--sidebar-expander-width, 2rem);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-sidebar-link-text);
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: var(--sidebar-item-height, 2rem);
+}
+.tag-folder-label {
+  flex: 1;
+  overflow-wrap: anywhere;
+  padding-right: var(--sidebar-expander-width, 2rem);
+}
+.tag-folder-count {
+  display: none;
+}
+
+/* Doc list inside folder - matches Furo's sub-level indentation */
+ul.tag-folder-docs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 var(--sidebar-item-spacing-horizontal, 1rem);
+  display: none;
+}
+ul.tag-folder-docs li { margin: 0; position: relative; }
+ul.tag-folder-docs li a {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--sidebar-item-spacing-vertical, 0.5rem) var(--sidebar-item-spacing-horizontal, 1rem);
+  line-height: var(--sidebar-item-line-height, 1rem);
+  color: var(--color-sidebar-link-text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  font-size: var(--sidebar-item-font-size, 0.875rem);
+}
+ul.tag-folder-docs li a:hover {
+  background: var(--color-sidebar-item-background--hover);
+  color: var(--color-sidebar-link-text);
+}
+ul.tag-folder-docs li a.current {
+  font-weight: 700;
+  background: var(--color-sidebar-item-background--current);
+}
+ul.tag-folder-docs li a.external-link {
+  opacity: 0.8;
+}
+
+/* Hide Furo's raw toctree, show only our tag nav */
+.sidebar-tree > ul { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════════
+   Tag filter widget - index page
+   Light mode friendly, uses Furo vars
+   ═══════════════════════════════════════════════════════════ */
+
+#tag-index-root { margin-top: 0.5rem; }
+
+.tag-search-wrap { margin-bottom: 1rem; }
+.tag-search-input {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  padding: 0.48rem 0.9rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  border: 1px solid var(--color-background-border);
+  border-radius: 4px;
+  background: var(--color-background-primary);
+  color: var(--color-foreground-primary);
+  outline: none;
+}
+.tag-search-input::placeholder { color: var(--color-foreground-muted); }
+.tag-search-input:focus {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
+}
+
+.tag-pills-wrap {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-background-border);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+}
+.tag-pills-labelrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+.tag-pills-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-foreground-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tag-mode-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-background-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.2rem;
+  gap: 0.1rem;
+}
+.tag-mode-sep { font-size: 0.65rem; color: var(--color-foreground-border); padding: 0 0.1rem; }
+.tag-mode-btn {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.12rem 0.45rem;
+  border-radius: 3px;
+  border: none;
+  background: transparent;
+  color: var(--color-foreground-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.tag-mode-btn.mode-and.active { background: #1a6634; color: #fff; }
+.tag-mode-btn.mode-or.active  { background: #7d4cdb; color: #fff; }
+.tag-mode-btn:not(.active):hover {
+  background: var(--color-background-hover);
+  color: var(--color-foreground-primary);
+}
+
+.tag-clear-btn {
+  margin-left: auto;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-background-border);
+  border-radius: 4px;
+  background: var(--color-background-primary);
+  color: var(--color-foreground-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+.tag-clear-btn:hover {
+  border-color: var(--color-foreground-border);
+  color: var(--color-foreground-primary);
+}
+
+.tag-pills-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.tag-pill {
+  font-size: 0.75rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-background-border);
+  background: var(--color-background-primary);
+  color: var(--color-foreground-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.tag-pill:hover {
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+}
+.tag-pill.active {
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+  background: color-mix(in srgb, var(--color-brand-primary) 10%, var(--color-background-primary));
+}
+
+.tag-query-wrap {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.9rem;
+}
+.tag-query-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-foreground-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tag-query-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 0.4rem 0.7rem;
+  font-family: var(--font-stack--monospace);
+  font-size: 0.82rem;
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-background-border);
+  border-radius: 4px;
+  color: var(--color-foreground-primary);
+  outline: none;
+}
+.tag-query-input::placeholder { color: var(--color-foreground-muted); }
+.tag-query-input:focus {
+  border-color: #7d4cdb;
+  box-shadow: 0 0 0 2px rgba(125, 76, 219, 0.15);
+}
+.tag-query-error {
+  font-size: 0.75rem;
+  color: var(--color-problematic);
+  width: 100%;
+}
+
+.tag-results-count {
+  font-size: 0.78rem;
+  color: var(--color-foreground-muted);
+  margin-bottom: 1rem;
+}
+
+/* Cards grid */
+.tag-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.tag-card {
+  padding: 1rem 1.1rem;
+  background: var(--color-card-background, var(--color-background-primary));
+  border: 1px solid var(--color-card-border, var(--color-background-border));
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.0625rem rgba(0,0,0,.1);
+}
+.tag-card:hover {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,.1), 0 0 0.0625rem var(--color-brand-primary);
+}
+.tag-card.external {
+  border-left: 3px solid #7d4cdb;
+}
+
+.tag-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-link) !important;
+  text-decoration: none !important;
+  line-height: 1.3;
+}
+.tag-card-title:hover {
+  color: var(--color-link--hover) !important;
+  text-decoration: underline !important;
+}
+
+.tag-location-badge {
+  font-size: 0.7rem;
+  color: var(--color-foreground-muted);
+  font-style: italic;
+}
+
+.tag-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+}
+.tag-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  background: var(--color-background-secondary);
+  color: var(--color-foreground-secondary);
+  border: 1px solid var(--color-background-border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.12s, color 0.12s;
+}
+.tag-badge:hover {
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+}
+.tag-badge.highlighted {
+  background: color-mix(in srgb, var(--color-brand-primary) 10%, var(--color-background-primary));
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+}
+
+.tag-empty {
+  font-size: 0.85rem;
+  color: var(--color-foreground-muted);
+  font-style: italic;
+}
+.tag-error { font-size: 0.82rem; color: var(--color-problematic); }

@@ -1,0 +1,120 @@
+{
+  "docs": [
+    {
+      "title": "Document One",
+      "url": "category-a/document-one.html",
+      "tags": [
+        "getting-started",
+        "guides",
+        "reference"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Document Two",
+      "url": "category-a/document-two.html",
+      "tags": [
+        "getting-started",
+        "procedures",
+        "templates"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Document Four",
+      "url": "category-b/document-four.html",
+      "tags": [
+        "runbooks",
+        "procedures",
+        "guides"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Document Three",
+      "url": "category-b/document-three.html",
+      "tags": [
+        "procedures",
+        "runbooks",
+        "reference"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Template One",
+      "url": "category-c/template-one.html",
+      "tags": [
+        "templates",
+        "procedures",
+        "getting-started"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Template Two",
+      "url": "category-c/template-two.html",
+      "tags": [
+        "templates",
+        "guides",
+        "reference"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Reference Guide One",
+      "url": "category-d/reference-guide-one.html",
+      "tags": [
+        "reference",
+        "guides",
+        "getting-started"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "Reference Guide Two",
+      "url": "category-d/reference-guide-two.html",
+      "tags": [
+        "reference",
+        "runbooks",
+        "procedures"
+      ],
+      "location": "Docs",
+      "external": false
+    },
+    {
+      "title": "External Resource One",
+      "url": "https://example.com",
+      "tags": [
+        "reference",
+        "guides"
+      ],
+      "location": "External",
+      "external": true
+    },
+    {
+      "title": "External Resource Two",
+      "url": "https://example.com",
+      "tags": [
+        "templates",
+        "procedures"
+      ],
+      "location": "External",
+      "external": true
+    }
+  ],
+  "all_tags": [
+    "getting-started",
+    "guides",
+    "procedures",
+    "reference",
+    "runbooks",
+    "templates"
+  ]
+}

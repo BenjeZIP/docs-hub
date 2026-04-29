@@ -1,0 +1,2 @@
+canonical-sphinx
+myst-parser
