@@ -43,7 +43,14 @@
   }
 
   function tagsJsonUrl() {
-    return Array(location.pathname.split("/").filter(Boolean).length).join("../") + "_static/tags.json";
+    // Works both locally and on RTD (/en/latest/...)
+    const parts = location.pathname.split("/").filter(Boolean);
+    // On RTD paths look like /en/latest/page.html - static is always at root of version
+    const rtd = parts.length >= 2 && (parts[1] === "latest" || parts[1] === "stable");
+    if (rtd) {
+      return "/" + parts[0] + "/" + parts[1] + "/_static/tags.json";
+    }
+    return Array(parts.length).join("../") + "_static/tags.json";
   }
 
   function init() {
