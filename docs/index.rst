@@ -42,6 +42,7 @@ Every document is tagged with one or more labels. A document can appear under mu
    :hidden:
    :maxdepth: 2
 
+   meta/contributing
    category-a/document-one
    category-a/document-two
    category-b/document-three

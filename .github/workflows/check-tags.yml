@@ -1,0 +1,45 @@
+name: Check tags
+
+on:
+  push:
+    paths:
+      - 'docs/**/*.md'
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+
+jobs:
+  check-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check all docs have tags
+        run: |
+          python3 - << 'EOF'
+          import sys
+          import re
+          from pathlib import Path
+
+          TAG_PAT = re.compile(r"\*\*tags:\*\*\s*(.+)")
+          docs_dir = Path("docs")
+          orphans = []
+
+          for path in sorted(docs_dir.rglob("*.md")):
+              if "_build" in path.parts:
+                  continue
+              text = path.read_text(encoding="utf-8")
+              has_tags = any(TAG_PAT.search(line) for line in text.splitlines())
+              if not has_tags:
+                  orphans.append(str(path))
+
+          if orphans:
+              print("❌ The following docs are missing a **tags:** line:\n")
+              for o in orphans:
+                  print(f"  - {o}")
+              print("\nAdd  **tags:** <tag1>, <tag2>  near the top of each file.")
+              print("See docs/meta/contributing.md for the full tag list.")
+              sys.exit(1)
+          else:
+              print(f"✅ All docs are tagged.")
+          EOF
